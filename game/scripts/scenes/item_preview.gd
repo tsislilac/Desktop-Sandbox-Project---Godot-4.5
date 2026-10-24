@@ -30,6 +30,7 @@ func _input(event: InputEvent) -> void:
 				world._item_spawn(item_spawning_scene,position, Vector2(size*x_scale,size), rot)
 
 func _ready() -> void:
+	size_bounds *= Global.default_scale
 	_deactivate()
 	modulate.a = op
 
@@ -60,12 +61,14 @@ func _deactivate():
 	rot = 0.0
 	rotation = 0.0
 	h_flip = false
+	flip_h = false
 	texture=default_image
 
 func _activate(scene_obj: PackedScene):
 	rot = 0.0
 	rotation = 0.0
 	h_flip = false
+	flip_h = false
 	size= Global.default_scale
 	visible = true
 	item_spawning_scene = scene_obj

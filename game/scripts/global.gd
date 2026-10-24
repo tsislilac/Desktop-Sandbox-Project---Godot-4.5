@@ -7,7 +7,7 @@ extends Node
 
 @export var default_windowed_size: Vector2i = Vector2i(1080,1080)
 
-@export var default_scale: float = 0.25
+@export var default_scale: float = 0.5
 
 @export var default_texture: Texture2D = load("res://game/resources/sprites/300px-Debugempty.png")
 
