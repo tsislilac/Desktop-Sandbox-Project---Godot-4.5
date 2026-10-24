@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjstdun2y337m"]
+
+[ext_resource type="PackedScene" uid="uid://dsgsnv6y8acba" path="res://game/props/rigid_prop_2d.tscn" id="1_1gihj"]
+[ext_resource type="Texture2D" uid="uid://bl65jc3o4cbkr" path="res://game/resources/sprites/dottifly.png" id="2_rguva"]
+
+[node name="RigidProp2D" node_paths=PackedStringArray("collision_container", "sprite_container") instance=ExtResource("1_1gihj")]
+gravity_scale = 0.5
+collision_container = NodePath("CollisionPolygon2D")
+sprite_container = NodePath("Sprite2D")
+
+[node name="CollisionPolygon2D" parent="." index="0"]
+position = Vector2(0, 0)
+polygon = PackedVector2Array(7, -31, 20, -32, 14, -57, 28, -44, 38, -31, 42, -18, 42, -7, 46, -8, 47, -2, 38, 7, 28, 11, 28, 15, 32, 16, 32, 20, 28, 23, 26, 29, 29, 30, 27, 34, 24, 35, 27, 39, 20, 41, 19, 46, 12, 48, 2, 52, -6, 52, -15, 50, -18, 48, -20, 45, -7, 39, -25, 37, -44, 33, -45, 25, -37, 17, -30, 15, -34, 9, -33, -1, -29, -10, -24, -10, -12, -4, -11, -15, -9.005722, -16.77269, -21, -40, -27, -48)
+
+[node name="Sprite2D" parent="." index="1"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_rguva")

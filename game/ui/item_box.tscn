@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://b08anxbap1nwc"]
+
+[ext_resource type="Script" uid="uid://weha5ufj3nau" path="res://game/scripts/ui/menu_item_button.gd" id="1_4ccsp"]
+[ext_resource type="Script" uid="uid://uhktmnugvyc" path="res://game/scripts/ui/item_box.gd" id="1_jd2n0"]
+[ext_resource type="Texture2D" uid="uid://ce3e65x6flxhn" path="res://game/resources/sprites/300px-Debugempty.png" id="3_plxsi"]
+[ext_resource type="Script" uid="uid://ct0refw5701wm" path="res://game/scripts/ui/item_button_texture.gd" id="4_plxsi"]
+
+[node name="ItemBox" type="PanelContainer"]
+custom_minimum_size = Vector2(40, 40)
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_jd2n0")
+spawned_item_path = "uid://dsgsnv6y8acba"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MenuItemButton" type="Button" parent="MarginContainer" node_paths=PackedStringArray("parent")]
+layout_mode = 2
+script = ExtResource("1_4ccsp")
+parent = NodePath("../..")
+
+[node name="ItemButtonTexture" type="TextureRect" parent="MarginContainer" node_paths=PackedStringArray("parent")]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("3_plxsi")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("4_plxsi")
+parent = NodePath("../..")

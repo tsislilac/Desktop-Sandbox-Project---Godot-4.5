@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://qwk08wsd7bdn"]
+
+[ext_resource type="PackedScene" uid="uid://dsgsnv6y8acba" path="res://game/props/rigid_prop_2d.tscn" id="1_s5iua"]
+[ext_resource type="Texture2D" uid="uid://b758fukms8bnb" path="res://game/resources/sprites/glaggle.png" id="2_nbfps"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tc2f6"]
+bounce = 1.5
+
+[node name="RigidProp2D" node_paths=PackedStringArray("collision_container", "sprite_container") instance=ExtResource("1_s5iua")]
+physics_material_override = SubResource("PhysicsMaterial_tc2f6")
+collision_container = NodePath("CollisionPolygon2D")
+sprite_container = NodePath("Sprite2D")
+
+[node name="CollisionPolygon2D" parent="." index="0"]
+polygon = PackedVector2Array(16, -56, 48, -32, 57, -15, 59, 11, 46, 38, 34, 46, 27, 53, 6, 56, -27, 50, -54, 24, -53, 3, -56, -18, -29, -51)
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_nbfps")

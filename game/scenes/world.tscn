@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3 uid="uid://dg0aqkh7nxccc"]
+
+[ext_resource type="Script" uid="uid://vxdkur7xd3hc" path="res://game/scripts/world.gd" id="1_6pf46"]
+[ext_resource type="Script" uid="uid://ddjry7xqx7wio" path="res://game/scripts/mouse.gd" id="2_2gpe7"]
+[ext_resource type="Script" uid="uid://bvxmjka2wlhc2" path="res://game/scripts/scenes/prop_holder.gd" id="3_wkjk4"]
+[ext_resource type="PackedScene" uid="uid://dhqnp3jvjxmjb" path="res://game/ui/menu_ui.tscn" id="5_2gpe7"]
+[ext_resource type="Script" uid="uid://cgpeuwbhom27o" path="res://game/scripts/scenes/item_preview.gd" id="5_uu6rj"]
+[ext_resource type="Texture2D" uid="uid://ce3e65x6flxhn" path="res://game/resources/sprites/300px-Debugempty.png" id="5_wkjk4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_805w3"]
+
+[node name="world" type="Node2D"]
+script = ExtResource("1_6pf46")
+
+[node name="ItemPreview" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2, 16)
+texture = ExtResource("5_wkjk4")
+script = ExtResource("5_uu6rj")
+op = 0.15
+size_bounds = Vector2(0.5, 2)
+
+[node name="mouse" type="StaticBody2D" parent="." groups=["mouse"]]
+collision_layer = 2
+script = ExtResource("2_2gpe7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mouse"]
+shape = SubResource("RectangleShape2D_805w3")
+
+[node name="PropHolder" type="Node2D" parent="."]
+script = ExtResource("3_wkjk4")
+
+[node name="MenuUI" parent="." instance=ExtResource("5_2gpe7")]
