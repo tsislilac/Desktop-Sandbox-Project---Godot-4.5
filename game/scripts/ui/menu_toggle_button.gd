@@ -29,9 +29,6 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("toggle menu"):
 		_pressed()
-		if not menu_opened and Global.selected_ui_button != null:
-			Global.selected_ui_button._on_pressed()
-			Global.selected_ui_button = null
 
 func _pressed() -> void:
 	menu_opened = !menu_opened
@@ -44,6 +41,9 @@ func _pressed() -> void:
 		start = -180.0
 		target = 0.0
 		toggled_menu.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		if Global.selected_ui_button != null:
+			Global.selected_ui_button._on_pressed()
+			Global.selected_ui_button = null
 	toggled_menu.visible = menu_opened
 	print(menu_opened)
 	

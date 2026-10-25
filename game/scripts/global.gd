@@ -37,7 +37,12 @@ func get_max_distance_from_center(root: Node) -> float:
 			
 			if node is Sprite2D and node.texture:
 				var half_point = node.texture.get_size()/2.0
-				for corner in [Vector2(-half_point.x,-half_point.y),Vector2(half_point.x,half_point.y)]:
+				for corner in [
+						Vector2(-half_point.x,-half_point.y),
+						Vector2(half_point.x,-half_point.y),
+						Vector2(half_point.x,half_point.y),
+						Vector2(-half_point.x,half_point.y)
+					]:
 					var point = local_transform*corner
 					max_dist = max(max_dist,abs(point.x),abs(point.y))
 					
